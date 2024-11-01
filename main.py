@@ -1,17 +1,28 @@
-#e 
-#Desarrolle un programa que entregue un valor aproximado de e, calculando esta suma hasta que la diferencia entre dos sumandos consecutivos sea menor que 0,0001.
+#Secuencia de Collatz
+#
 
+def collatz_sequence(n):
+    sequence = [n]
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        sequence.append(n)
+    return sequence
 
-from math import factorial
+def print_collatz_lengths(limit):
+    for i in range(1, limit + 1):
+        sequence = collatz_sequence(i)
+        length = len(sequence)
+        print(f"{i} {'*' * length}")
 
-eValue = 1.0
-num = 1
-termim = 1.0    
+n = int(input("Enter an integer number: "))
 
-while termim > 0.0001:
-    termim = 1 / factorial(num)
-    eValue += termim
-    num += 1
+for i in range(1, n + 1):
+    sequence = collatz_sequence(i)
+    print(f"n: {i}")
+    print(" ".join(map(str, sequence)))
 
-print(f"Approximation of e: {eValue}")
-
+print("\nGráfico de los largos de las secuencias de Collatz:")
+print_collatz_lengths(n)
