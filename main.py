@@ -1,10 +1,14 @@
-#π
-#Desarolle un programa para estimar el valor de π usando la siguiente suma infinita
+#suma de fracciones 
+#Desarrolle un programa que permita trabajar con las potencias fraccionales de dos
 
-n = int(input("Enter the number: "))
+print("Power\tFraction\tSum")
 
-piNum = 0
-for term in range(n):
-    piNum += (-1) ** term / (2 * term + 1)
-piNum *= 4
-print(f"The approximation of pi with {n} terms is: {piNum}")
+power = 1
+fraction = 0.5
+sumAc = 0
+
+while fraction > 0.000001:
+    sumAc += fraction
+    print(f"{power}\t{fraction:.6f}\t{sumAc:.6f}")
+    power += 1
+    fraction /= 2
