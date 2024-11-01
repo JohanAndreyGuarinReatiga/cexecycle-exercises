@@ -1,12 +1,10 @@
-#Tabla de multiplicar
+#Divisores¶
+#Escriba un programa que entregue todos los divisores del número entero ingresado:
 
-
-maxNumber = 10
-
-for spc in range(1, maxNumber + 1):
-    print(f"{spc:>3}", end=" ")  
-print()  
-for spc in range(1, maxNumber + 1):
-    for hor in range(1, maxNumber + 1):
-        print(f"{spc * hor:>3}", end=" ")  
-    print()
+number = int(input("Enter a number: "))
+divisors = []
+for div in range(1, number + 1):
+    if number % div == 0: 
+        divisors.append(div)
+        
+print("Divisors:", " ".join(map(str, divisors)))
