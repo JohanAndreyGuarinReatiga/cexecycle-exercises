@@ -1,14 +1,17 @@
-#suma de fracciones 
-#Desarrolle un programa que permita trabajar con las potencias fraccionales de dos
+#e 
+#Desarrolle un programa que entregue un valor aproximado de e, calculando esta suma hasta que la diferencia entre dos sumandos consecutivos sea menor que 0,0001.
 
-print("Power\tFraction\tSum")
 
-power = 1
-fraction = 0.5
-sumAc = 0
+from math import factorial
 
-while fraction > 0.000001:
-    sumAc += fraction
-    print(f"{power}\t{fraction:.6f}\t{sumAc:.6f}")
-    power += 1
-    fraction /= 2
+eValue = 1.0
+num = 1
+termim = 1.0    
+
+while termim > 0.0001:
+    termim = 1 / factorial(num)
+    eValue += termim
+    num += 1
+
+print(f"Approximation of e: {eValue}")
+
