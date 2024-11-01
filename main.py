@@ -1,19 +1,36 @@
-#Tiempo de viaje¶
-#Un viajero desea saber cuánto tiempo tomó un viaje que realizó. Él tiene la duración en minutos de cada uno de los tramos del viaje.
+#Dibujos de asteriscos
 
-#Desarrolle un programa que permita ingresar los tiempos de viaje de los tramos y entregue como resultado el tiempo total de viaje en formato horas:minutos.
 
-#El programa deja de pedir tiempos de viaje cuando se ingresa un 0.
+print("Select the shape you want to draw:")
+print("1. Rectangle")
+print("2. Triangle")
+print("3. Hexagon")
+choice = int(input("Enter the number of your choice: "))
+if choice == 1:
+    height = int(input("Enter the height of the rectangle: "))
+    width = int(input("Enter the width of the rectangle: "))
+    
+    print("\nRectangle:")
+    for nnn1 in range(height):
+        print("*" * width)
 
-totalMin = 0
+elif choice == 2:
+    height = int(input("Enter the height of the triangle: "))
+    
+    print("\nTriangle:")
+    for lineNum in range(1, height + 1):
+        print("*" * lineNum)
 
-while True:
-    duration = int(input("Duration (in minutes, enter 0 to finish): "))
-    if duration == 0:  
-        break
-    totalMin += duration  
+elif choice == 3:
+    sideLength = int(input("Enter the side length of the hexagon: "))
+    
+    print("\nHexagon:")
+    for lineNum in range(1, sideLength + 1):
+        print(" " * (sideLength - lineNum) + "*" * (sideLength + 2 * (lineNum - 1)))
+    
+    for lineNum in range(sideLength - 1, 0, -1):
+        print(" " * (sideLength - lineNum) + "*" * (sideLength + 2 * (lineNum - 1)))
 
-hours = totalMin // 60
-minutes = totalMin % 60
+else:
+    print("Invalid option. Please choose between 1, 2, and 3.")
 
-print(f"Total travel time: {hours}:{minutes:02d} hours")
